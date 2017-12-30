@@ -23,7 +23,7 @@ module.exports = {
         loaders: [{
             test: /\.js?$/,
             exclude: /node_modules/,
-            loader: 'react-hot-loader!babel-loader'
+            loader: ['react-hot-loader/webpack', 'babel-loader?presets[]=react']
         }]
     },
 
