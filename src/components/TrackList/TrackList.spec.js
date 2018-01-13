@@ -15,7 +15,7 @@ describe('TrackList', () => {
   it('shows track title', () => {
     const props = {
       tracks: [{ id: 1, title: 'foo' }]
-    }
+    };
     const element = shallow(<TrackList {...props} />);
 
     expect(element.contains('foo')).to.be.true;
