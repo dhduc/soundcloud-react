@@ -32,6 +32,10 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: 'src/index.html',
             inject: true
+        }),
+        new webpack.DefinePlugin({
+            __CLIENT_ID__: JSON.stringify(process.env.CLIENT_ID || '2t9loNQH90kzJcsFCODdigxfp325aq4z'),
+            __REDIRECT_URI__: JSON.stringify(process.env.REDIRECT_URI || 'http://localhost:8080/callback')
         })
     ]
 };

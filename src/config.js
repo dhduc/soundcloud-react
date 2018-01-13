@@ -1,2 +1,2 @@
-export const CLIENT_ID = process.env.CLIENT_ID || 'FPWXQOBHHZ';
-export const REDIRECT_URI = process.env.REDIRECT_URI || 'http://localhost:8080/callback';
+export const CLIENT_ID = __CLIENT_ID__;
+export const REDIRECT_URI = __REDIRECT_URI__;
