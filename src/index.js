@@ -1,9 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TrackList from './components/TrackList/index';
-import {configureStore} from './store';
-import * as actions from './actions';
 import {Provider} from 'react-redux';
+import SoundCloud from 'soundcloud';
+import {Router, browserHistory} from 'react-router';
+import {syncHistoryWithStore} from 'react-router-redux';
+import {configureStore} from './store';
+import {CLIENT_ID, REDIRECT_URI} from './config';
+import createRoutes from './routes';
 
 const tracks = [
     {
@@ -16,12 +19,18 @@ const tracks = [
     }
 ];
 
+SoundCloud.initialize({
+  client_id: CLIENT_ID,
+  redirect_uri: REDIRECT_URI
+});
+
 const store = configureStore();
-store.dispatch(actions.setTracks(tracks));
+const history = syncHistoryWithStore(browserHistory, store);
+const routes = createRoutes();
 
 ReactDOM.render(
   <Provider store={store}>
-    <TrackList />
+    <Router history={history} routes={routes} />
   </Provider>,
   document.getElementById('app')
 );
