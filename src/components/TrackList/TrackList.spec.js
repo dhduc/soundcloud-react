@@ -1,24 +1,19 @@
 import TrackList from './TrackList';
+import Track from './Track';
 import {shallow} from 'enzyme';
 
 describe('TrackList', () => {
 
-  it('shows two tracks', () => {
+  it('shows two <Track /> component', () => {
     const props = {
-      tracks: [{ id: 1, title: 'foo' }, { id: 2, title: 'bar' }]
+      tracks: {
+        tracks: [{ origin: { id: 1, title: 'foo' }}, { origin: { id: 2, title: 'bar' }}],
+        activeTrack: null
+      }
     };
     const element = shallow(<TrackList {...props} />);
 
-    expect(element.find('div > div')).to.have.length(2);
+    expect(element.find(Track)).to.have.length(2);
   });
-
-  it('shows track title', () => {
-    const props = {
-      tracks: [{ id: 1, title: 'foo' }]
-    };
-    const element = shallow(<TrackList {...props} />);
-
-    expect(element.contains('foo')).to.be.true;
-  })
 
 });

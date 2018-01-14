@@ -1,7 +1,8 @@
 import {auth} from './auth';
-import {setTracks} from './track';
+import {setTracks, play} from './track';
 
 export {
   auth,
+  play,
   setTracks
 };
