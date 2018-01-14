@@ -1,6 +1,11 @@
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
 
 export default class TrackList extends Component {
+  static propTypes = {
+    tracks: PropTypes.array,
+    user: PropTypes.object,
+    auth: PropTypes.func
+  };
 
   static defaultProps = {
     tracks: []
@@ -10,7 +15,11 @@ export default class TrackList extends Component {
     return (
       <div>
         <div>
-          <button onClick={this.props.auth} type='button'>Login</button>
+          {
+            this.props.user
+              ? <div>Hello {this.props.user.username}</div>
+              : <button onClick={this.props.auth} type='button'>Login</button>
+          }
         </div>
         <div>
           {
