@@ -34,7 +34,7 @@ module.exports = {
             inject: true
         }),
         new webpack.DefinePlugin({
-            __CLIENT_ID__: JSON.stringify(process.env.CLIENT_ID || '2t9loNQH90kzJcsFCODdigxfp325aq4z'),
+            __CLIENT_ID__: JSON.stringify(process.env.CLIENT_ID || '1fb0d04a94f035059b0424154fd1b18c'),
             __REDIRECT_URI__: JSON.stringify(process.env.REDIRECT_URI || 'http://localhost:8080/callback')
         })
     ]
